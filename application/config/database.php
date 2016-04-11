@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql.idhostinger.com',
-	'username' => 'u838578016_urm',
-	'password' => 'rentmul9900',
-	'database' => 'u838578016_rm',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => 'deny',
+	'database' => 'rental_multimedia',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
