@@ -198,7 +198,7 @@
                                 <a href="<?php echo base_url('Frontend/tentang'); ?>">Tentang Kami</a>
                             </li>
                             <li <?php echo $active_menu == 'login' ? ' class="active"' : ''; ?>>
-                                <a href="<?php echo base_url('Frontend/login'); ?>">Login</a>
+                                <a href="<?php echo base_url(''); ?>">Login</a>
                             </li>
                         </ul>
                     </div>
