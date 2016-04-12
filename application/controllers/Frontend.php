@@ -2,8 +2,6 @@
 
 class Frontend extends CI_Controller {
 
-
-
     function __construct() {
 
         parent::__construct();
@@ -13,10 +11,7 @@ class Frontend extends CI_Controller {
         $this->load->library('form_validation');
 
         $this->load->library('pagination');
-
     }
-
-
 
     //INDEX FRONTEND
 
@@ -34,15 +29,14 @@ class Frontend extends CI_Controller {
 
         $data['data_portofolio_home'] = $this->Web_model->data_portofolio_home();
 
+        $data['active_menu'] = 'home';
+
         $this->load->view('frontend/bg_frontend_home_header', $data);
 
         $this->load->view('frontend/bg_frontend_home_index', $data);
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     //PORTOFOLIO
 
@@ -56,15 +50,16 @@ class Frontend extends CI_Controller {
 
         $data['data_portofolio'] = $this->Web_model->data_portofolio();
 
-        $this->load->view('frontend/bg_frontend_portofolio_header', $data);
+        $data['active_menu'] = 'portofolio';
+
+//        $this->load->view('frontend/bg_frontend_portofolio_header', $data);
+
+        $this->load->view('frontend/bg_frontend_home_header', $data);
 
         $this->load->view('frontend/bg_frontend_portofolio_index', $data);
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     function portofolio_detail() {
 
@@ -76,15 +71,16 @@ class Frontend extends CI_Controller {
 
         $data['data_portofolio_detail'] = $this->Web_model->data_portofolio_detail($id_portofolio);
 
-        $this->load->view('frontend/bg_frontend_portofolio_header', $data);
+        $data['active_menu'] = 'portofolio';
+
+//        $this->load->view('frontend/bg_frontend_portofolio_header', $data);
+
+        $this->load->view('frontend/bg_frontend_home_header', $data);
 
         $this->load->view('frontend/bg_frontend_portofoliodetail_index', $data);
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     //BLOG
 
@@ -151,10 +147,7 @@ class Frontend extends CI_Controller {
         $this->load->view('frontend/bg_frontend_blog_sidebar', $data);
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     function blog_kategori() {
 
@@ -221,10 +214,7 @@ class Frontend extends CI_Controller {
 
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     function blog_detail() {
 
@@ -245,10 +235,7 @@ class Frontend extends CI_Controller {
         $this->load->view('frontend/bg_frontend_blog_sidebar', $data);
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     function produk() {
 
@@ -304,17 +291,18 @@ class Frontend extends CI_Controller {
 
         $data['data_produk'] = $this->Web_model->data_produk($config['per_page'], $dari);
 
-        $this->load->view('frontend/bg_frontend_produk_header', $data);
+//        $this->load->view('frontend/bg_frontend_produk_header', $data);
+
+        $data['active_menu'] = 'produk';
+
+        $this->load->view('frontend/bg_frontend_home_header', $data);
 
         $this->load->view('frontend/bg_frontend_produk_index', $data);
 
         $this->load->view('frontend/bg_frontend_produk_sidebar', $data);
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     function produk_kategori() {
 
@@ -372,7 +360,11 @@ class Frontend extends CI_Controller {
 
         $data['data_produk_kategori_list'] = $this->Web_model->data_produk_kategori_list($config['per_page'], $dari, $id_kat);
 
-        $this->load->view('frontend/bg_frontend_produk_header', $data);
+//        $this->load->view('frontend/bg_frontend_produk_header', $data);
+
+        $data['active_menu'] = 'produk';
+
+        $this->load->view('frontend/bg_frontend_home_header', $data);
 
         $this->load->view('frontend/bg_frontend_produk_kategori', $data);
 
@@ -381,10 +373,7 @@ class Frontend extends CI_Controller {
 
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     function produk_detail() {
 
@@ -398,17 +387,18 @@ class Frontend extends CI_Controller {
 
         $data['data_produk_detail'] = $this->Web_model->data_produk_detail($id_produk);
 
-        $this->load->view('frontend/bg_frontend_produk_header', $data);
+//        $this->load->view('frontend/bg_frontend_produk_header', $data);
+
+        $data['active_menu'] = 'produk';
+
+        $this->load->view('frontend/bg_frontend_home_header', $data);
 
         $this->load->view('frontend/bg_frontend_produkdetail_index', $data);
 
         $this->load->view('frontend/bg_frontend_produk_sidebar', $data);
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     function tentang() {
 
@@ -420,30 +410,24 @@ class Frontend extends CI_Controller {
 
         $data['data_portofolio'] = $this->Web_model->data_portofolio();
 
-//        $this->headerType('tentang');
+        $data['active_menu'] = 'about';
 
-        $this->load->view('frontend/bg_frontend_tentang_header', $data);
+        $this->load->view('frontend/bg_frontend_home_header', $data);
+
+//        $this->load->view('frontend/bg_frontend_tentang_header', $data);
 
         $this->load->view('frontend/bg_frontend_tentang_index', $data);
 
         $this->load->view('frontend/bg_frontend_home_footer', $data);
-
     }
-
-
 
     function headerType($type) {
 
         $data['data_header_type'] = $type;
 
         $this->load->view('frontend/bg_frontend_tentang_header', $data);
-
     }
 
-
-
 }
-
-
 
 ?>
