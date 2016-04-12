@@ -223,6 +223,17 @@ class Frontend extends CI_Controller {
         $data['data_header_type'] = $type;
         $this->load->view('frontend/bg_frontend_tentang_header', $data);
     }
+    
+    function login(){
+        $data['data_portofolio_kategori'] = $this->Web_model->data_portofolio_kategori();
+        $data['data_logo'] = $this->Web_model->data_logo();
+        $data['data_footer'] = $this->Web_model->data_footer();
+        $data['data_portofolio'] = $this->Web_model->data_portofolio();
+        $data['active_menu'] = 'login';
+        $this->load->view('frontend/bg_frontend_home_header', $data);
+        $this->load->view('frontend/bg_frontend_tentang_index', $data);
+        $this->load->view('frontend/bg_frontend_home_footer', $data);
+    }
 
 }
 
